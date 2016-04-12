@@ -15,6 +15,14 @@ def get_albums():
     return jsonify({'albums': response})
 
 
+@app.route('/get/album/<int:album_id>', methods=['GET'])
+def get_album_by_id(album_id):
+    response = []
+    for i in range(1, 10, 1):
+        response.append({"name": "album" + str(i), "id": i})
+    return jsonify({'albums': response})
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Mykids Server')
     parser.add_argument('-d', '--debug', help='Debug')
